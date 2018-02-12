@@ -30,6 +30,8 @@ namespace serilog_practice
                 log.Debug("Test");
                 log.Information("Hello, Serilog!");
                 log.Warning("Goodbye, Serilog.");
+                var specialLog = log.ForContext("Customer", "Mike");
+                specialLog.Warning("A very rich man! balance: {balance} millions", 100);
             }
         }
     }
