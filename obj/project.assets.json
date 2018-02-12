@@ -269,6 +269,18 @@
           "lib/netstandard1.3/Serilog.dll": {}
         }
       },
+      "Serilog.Enrichers.Environment/2.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Serilog.Enrichers.Environment.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Serilog.Enrichers.Environment.dll": {}
+        }
+      },
       "Serilog.Formatting.Compact/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -1318,6 +1330,17 @@
         "lib/netstandard1.3/Serilog.xml",
         "serilog.2.6.0.nupkg.sha512",
         "serilog.nuspec"
+      ]
+    },
+    "Serilog.Enrichers.Environment/2.1.2": {
+      "sha512": "Uj3X4tGW8T38IIGCp/MxbHgg5vG3HN5myBQLIw2JTt87Gwv11NgZJGc4hunmFocQYny09CPVy2LRfiI6gAqQ4Q==",
+      "type": "package",
+      "path": "serilog.enrichers.environment/2.1.2",
+      "files": [
+        "lib/net45/Serilog.Enrichers.Environment.dll",
+        "lib/netstandard1.3/Serilog.Enrichers.Environment.dll",
+        "serilog.enrichers.environment.2.1.2.nupkg.sha512",
+        "serilog.enrichers.environment.nuspec"
       ]
     },
     "Serilog.Formatting.Compact/1.0.0": {
@@ -3196,6 +3219,7 @@
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.NETCore.App >= 2.0.0",
       "Serilog >= 2.6.0",
+      "Serilog.Enrichers.Environment >= 2.1.2",
       "Serilog.Formatting.Compact >= 1.0.0",
       "Serilog.Sinks.Console >= 3.1.1",
       "Serilog.Sinks.File >= 4.0.0"
@@ -3256,6 +3280,10 @@
           "Serilog": {
             "target": "Package",
             "version": "[2.6.0, )"
+          },
+          "Serilog.Enrichers.Environment": {
+            "target": "Package",
+            "version": "[2.1.2, )"
           },
           "Serilog.Formatting.Compact": {
             "target": "Package",

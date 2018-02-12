@@ -12,10 +12,14 @@ namespace serilog_practice
             using (var log = new LoggerConfiguration()
                 .MinimumLevel.Debug()
                 .Enrich.WithProperty("Application", "Demo")
-                .Enrich.WithProperty("Server", System.Net.Dns.GetHostName())
+                // Package: Serilog.Enrichers.Environment
+                .Enrich.WithMachineName()
+                // Package: Serilog.Sinks.Console
                 .WriteTo.Console()
+                // Package: Serilog.Sinks.File
                 .WriteTo.File("./log/log.txt")
                 .WriteTo.File(new JsonFormatter(), "./log/log.json")
+                // Package: Serilog.Formatting.Compact
                 .WriteTo.File(new CompactJsonFormatter(), "./log/log.clef")
                 .CreateLogger())
             {
@@ -41,6 +45,5 @@ namespace serilog_practice
 
     public class SomeContext
     {
-
     }
 }
