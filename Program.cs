@@ -11,6 +11,8 @@ namespace serilog_practice
         {
             using (var log = new LoggerConfiguration()
                 .MinimumLevel.Debug()
+                .Enrich.WithProperty("Application", "Demo")
+                .Enrich.WithProperty("Server", System.Net.Dns.GetHostName())
                 .WriteTo.Console()
                 .WriteTo.File("./log/log.txt")
                 .WriteTo.File(new JsonFormatter(), "./log/log.json")
