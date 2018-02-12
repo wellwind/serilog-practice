@@ -32,7 +32,15 @@ namespace serilog_practice
                 log.Warning("Goodbye, Serilog.");
                 var specialLog = log.ForContext("Customer", "Mike");
                 specialLog.Warning("A very rich man! balance: {balance} millions", 100);
+
+                var contextLog = log.ForContext<SomeContext>();
+                contextLog.Warning("context log");
             }
         }
+    }
+
+    public class SomeContext
+    {
+
     }
 }
