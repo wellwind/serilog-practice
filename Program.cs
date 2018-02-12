@@ -1,13 +1,21 @@
 ﻿using System;
 using Serilog;
+using Serilog.Formatting.Compact;
+using Serilog.Formatting.Json;
 
 namespace serilog_practice
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            using (var log = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.Console().CreateLogger())
+            using (var log = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("./log/log.txt")
+                .WriteTo.File(new JsonFormatter(), "./log/log.json")
+                .WriteTo.File(new CompactJsonFormatter(), "./log/log.clef")
+                .CreateLogger())
             {
                 try
                 {
